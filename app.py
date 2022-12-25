@@ -5,7 +5,7 @@ import numpy as np
 
 app=Flask(__name__)
 camera=cv2.VideoCapture(0)
-model = torch.hub.load(r'yolov5', 'custom', path='yolov5/runs/train/exp7/weights/best.pt', force_reload=True, source='local')
+model = torch.hub.load('ultralytics/yolov5', 'custom', path='weights/best.pt', force_reload=True)
 model.iou = 0.45
 model.conf = 0.55
 
