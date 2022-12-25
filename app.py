@@ -5,7 +5,7 @@ import numpy as np
 
 app=Flask(__name__)
 camera=cv2.VideoCapture(0)
-model = torch.hub.load('ultralytics/yolov5', 'custom', path='weights/best.pt', force_reload=True)
+model = torch.hub.load('ultralytics/yolov5', 'custom', path='/weights/best.pt', force_reload=True)
 model.iou = 0.45
 model.conf = 0.55
 
@@ -41,4 +41,4 @@ def video():
     return Response(generate_frames(),mimetype='multipart/x-mixed-replace; boundary=frame')
 
 if __name__=="__main__":
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0')
